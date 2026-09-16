@@ -1,0 +1,82 @@
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: "Michroma", sans-serif;
+    margin: 0;
+    background-color: #162a47;
+    color: #e0e4e3;
+}
+
+p, .nav-link{
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+nav, .nav-socials, .nav-links, .nav-icon, .link-icon, .nav-apps{
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    position:fixed;
+    box-sizing:border-box;
+    top:0;
+    left: 0;
+    width:100%;
+    justify-content: space-between;
+    padding: 5px 20px;
+    border-bottom: 1px solid #3c4d66;
+}
+
+.nav-icon, .link-icon{
+    gap: 20px;
+}
+
+.nav-links {
+    gap: 16px;
+}
+
+.nav-socials {
+    gap: 25px;
+}
+
+.nav-apps {
+    gap: 5px;
+    margin-left: 5px;
+}
+
+.link-icon, .link-icon:visited, .link-icon:hover, .link-icon:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:flex-end;
+}
+
+.pic-ctn {
+
+}
+
+.large-h2 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.subheading-ctn {
+
+}
+
+.large-heading {
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    margin-bottom: 0;
+}
