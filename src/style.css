@@ -5,7 +5,10 @@
 }
 
 :root {
-    --nav-height: 0px;
+    /* Fallback for the first paint before main.js measures the real nav.
+       Matches `nav { height: 40px }` — under border-box the 5px padding and
+       1px border are already inside that 40px, so the total is exactly 40. */
+    --nav-height: 40px;
 }
 
 body, html{
@@ -15,8 +18,15 @@ body, html{
     color: #e0e4e3;
 }
 
+html {
+    /* stops anchor jumps (#experience) from landing under the fixed nav */
+    scroll-padding-top: var(--nav-height);
+}
+
+/* The hero box starts at y=0 (so any background bleeds up behind the nav),
+   but its *content* is inset by the nav's height so nothing overlaps. */
 .hero {
-    min-height: calc(100vh - var(--nar-height));
+    padding-top: var(--nav-height);
 }
 
 p, .nav-link{
@@ -32,13 +42,18 @@ nav, .nav-socials, .nav-links, .nav-icon, .link-icon, .nav-apps{
 header {
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 40;
     width: 100%;
+    /* required with `fixed`: content now scrolls *under* the nav,
+       so it needs its own opaque background to hide it */
+    background-color: #162a47;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    height: 40px;
     padding: 5px 20px;
     border-bottom: 1px solid #3c4d66;
 }
@@ -65,8 +80,14 @@ nav {
     text-decoration: none;
 }
 
+main {
+    padding-top: 0;
+}
+
 section {
-    height: 100vh;
+    /* min-height, not height, so a section can grow past the viewport
+       if its content ever needs to */
+    min-height: 100vh;
     display: flex;
     flex-direction:column;
     justify-content:flex-end;
