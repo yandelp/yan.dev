@@ -15,7 +15,7 @@ body, html{
     color: #e0e4e3;
 }
 
-.hero {
+#hero {
     min-height: calc(100vh - var(--nar-height));
 }
 
@@ -70,6 +70,16 @@ section {
     display: flex;
     flex-direction:column;
     justify-content:flex-end;
+}
+
+.hero-ctn {
+    height: 100%;
+    width: 50%;
+}
+
+.description-ctn {
+    display: flex;
+    flex-direction:column
 }
 
 /* 

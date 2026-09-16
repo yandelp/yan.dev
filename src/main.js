@@ -1,9 +1,9 @@
 function setNavHeight() {
-    const nav = document.querySelector('nav');
+    const header = document.querySelector('header');
 
     document.documentElement.style.setProperty(
         '--nav-height',
-        `${nav.offsetHeight}px`
+        `${header.offsetHeight}px`
     );
 }
 
