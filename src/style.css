@@ -4,11 +4,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --nav-height: 0px;
+}
+
 body, html{
     font-family: "Michroma", sans-serif;
     margin: 0;
     background-color: #162a47;
     color: #e0e4e3;
+}
+
+.hero {
+    min-height: calc(100vh - var(--nar-height));
 }
 
 p, .nav-link{
@@ -25,7 +33,7 @@ header {
     position: fixed;
     top: 0;
     z-index: 40;
-    width: 100%
+    width: 100%;
 }
 
 nav {
@@ -33,13 +41,6 @@ nav {
     justify-content: space-between;
     padding: 5px 20px;
     border-bottom: 1px solid #3c4d66;
-}
-
-.hero {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 }
 
 .nav-icon, .link-icon{
@@ -64,29 +65,22 @@ nav {
     text-decoration: none;
 }
 
-.skibidi {
+section {
     height: 100vh;
     display: flex;
     flex-direction:column;
     justify-content:flex-end;
 }
 
-.pic-ctn {
-
-}
-
+/* 
 .large-h2 {
     font-weight: 400;
     margin: 0;
-}
-
-.subheading-ctn {
-
 }
 
 .large-heading {
     font-size: 50px;
     font-weight: 400;
     letter-spacing: 5px;
-    margin-bottom: 0;
-}
+    margin: 0;
+} */
