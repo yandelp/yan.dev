@@ -1,13 +1,22 @@
+/*
+colors:
+#e0e4e3 white
+#3c4d66 light gray
+*/
+
 *, 
 *::before, 
 *::after {
     box-sizing: border-box;
 }
 
+section {
+    height: 100vh;
+}
+
 :root {
-    /* Fallback for the first paint before main.js measures the real nav.
-       Matches `nav { height: 40px }` — under border-box the 5px padding and
-       1px border are already inside that 40px, so the total is exactly 40. */
+    --strip-w: 3vw;
+    --rule: 1px;
     --nav-height: 40px;
 }
 
@@ -19,14 +28,7 @@ body, html{
 }
 
 html {
-    /* stops anchor jumps (#experience) from landing under the fixed nav */
     scroll-padding-top: var(--nav-height);
-}
-
-/* The hero box starts at y=0 (so any background bleeds up behind the nav),
-   but its *content* is inset by the nav's height so nothing overlaps. */
-.hero {
-    padding-top: var(--nav-height);
 }
 
 p, .nav-link{
@@ -41,21 +43,25 @@ nav, .nav-socials, .nav-links, .nav-icon, .link-icon, .nav-apps{
 
 header {
     position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
     z-index: 40;
     width: 100%;
-    /* required with `fixed`: content now scrolls *under* the nav,
-       so it needs its own opaque background to hide it */
-    background-color: #162a47;
+    background-color: rgba(22, 42, 71, 0.533);
+}
+
+.hero-subheading-ctn {
+    text-align: right;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    backdrop-filter: blur(10px); 
     height: 40px;
-    padding: 5px 20px;
-    border-bottom: 1px solid #3c4d66;
+    padding: 25px;
+    border-bottom: 2px solid #3c4d66;
 }
 
 .nav-icon, .link-icon{
@@ -71,7 +77,7 @@ nav {
 }
 
 .nav-apps {
-    gap: 5px;
+    gap: 10px;
     margin-left: 5px;
 }
 
@@ -82,26 +88,151 @@ nav {
 
 main {
     padding-top: 0;
+    width: 100vw;
 }
 
-section {
-    /* min-height, not height, so a section can grow past the viewport
-       if its content ever needs to */
+.hero {
+    position: relative;
+    isolation: isolate;
+    padding-top: var(--nav-height);
     min-height: 100vh;
+    overflow: hidden;
     display: flex;
-    flex-direction:column;
-    justify-content:flex-end;
 }
 
-/* 
+main {
+    position: relative;
+    isolation: isolate;
+}
+
+.left-hero {
+    display: flex;
+    flex-direction: column;
+    border-right: var(--rule) solid #e0e4e3;
+    min-width: 20vw;
+    gap: 50px;
+}
+
+.left-hero-line-ctn {
+    flex: none;
+    width: var(--strip-w);
+    border-right: var(--rule) solid #3c4d66;
+}
+
+#hero-heading {
+    --white-line-offset: 81px;
+    --gray-line-offset: 10px;
+    position: relative;
+    isolation: isolate;
+    align-self: stretch;
+    text-align: right;
+}
+
+#hero-heading::before {
+    content: "";
+    position: absolute;
+    z-index: -1;                                       
+    left: 0;
+    right: calc(var(--rule) * -1 - var(--strip-w));     
+    top: 28px;                                          
+    bottom: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+#hero-heading h1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(var(--gray-line-offset, 59px) * -1);
+    width: 100vw;
+    height: 1px;
+    background: #3c4d66;
+    pointer-events: none;
+}
+
+#hero-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: var(--white-line-offset, 78%);
+    width: 100vw;
+    height: 1px;
+    background: #e0e4e3;
+    pointer-events: none;
+}
+
+h1 {
+    padding: 0;
+    font-size: 70px;
+    letter-spacing: 0.1em;     
+}
+
 .large-h2 {
+    letter-spacing: 0.1em;    
+}
+
+.large-h2, h1{
     font-weight: 400;
     margin: 0;
 }
 
-.large-heading {
-    font-size: 50px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    margin: 0;
-} */
+.backdrop-img{
+    position: absolute;
+    right: -160px;  
+    top: -115px;          
+    max-width: 710px;          
+    height: auto;        
+    z-index: -1;        
+    pointer-events: none;
+}
+
+#hero-heading h1 {
+    margin-right: -0.2em;
+}
+
+#hero-icon-ctn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 145px 0px;
+}
+
+/* lines */
+.line {
+  --c: rgba(255, 255, 255, 0.16);
+  position: absolute;
+  background: var(--c);
+  pointer-events: none;
+}
+.line.bright { 
+    --c: rgba(255, 255, 255, 0.95); 
+}
+
+.line.v { 
+    top: 0; bottom: 0; left: var(--at); width: 1px; 
+}
+
+.line.h { 
+    left: 0; right: 0; top: var(--at); height: 1px; 
+}
+
+.line.v.fade {
+  bottom: auto;
+  height: var(--len, 35%);
+  background: linear-gradient(to bottom, var(--c), transparent);
+}
+
+.line.h.fade {
+  right: auto;
+  width: var(--len, 35%);
+  background: linear-gradient(to right, var(--c), transparent);
+}
+
+.line-field {
+    position: relative;   
+    flex: 1;              
+    min-width: 0;         
+    overflow: clip;
+}
+
