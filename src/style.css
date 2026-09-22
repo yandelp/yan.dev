@@ -10,8 +10,41 @@ colors:
     box-sizing: border-box;
 }
 
+.translucent-dblue-box {
+    background-color: #162a4789;
+}
+
+.translucent-lgray-box {
+    background-color: #9b9b9b89;
+}
+
+
+
 section {
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px #3c4d66 solid;
+}
+
+footer p {
+    font-size: 10px;
+}
+
+.bw-fade {
+    background-image: linear-gradient(to top, #8594a1, #162a47);
+}
+
+.wb-fade {
+    background-image: linear-gradient(to bottom, #8594a1, #162a47);
+}
+
+.bg-lightblue {
+    background-color: #8594a1;
 }
 
 :root {
@@ -42,7 +75,7 @@ nav, .nav-socials, .nav-links, .nav-icon, .link-icon, .nav-apps{
 }
 
 header {
-    position: fixed;
+    position: sticky;
     overflow: hidden;
     top: 0;
     left: 0;
@@ -94,10 +127,41 @@ main {
 .hero {
     position: relative;
     isolation: isolate;
-    padding-top: var(--nav-height);
-    min-height: 100vh;
-    overflow: hidden;
+    overflow-x: clip;
     display: flex;
+}
+
+.about-section{
+    display:flex;
+}
+
+.about-ctn {
+    display: flex;
+    flex: 1;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas:
+        "desc photo1"
+        "desc photo2";
+    flex: 1;
+    padding:60px
+}
+
+.about-desc {
+    grid-area: desc;
+}
+
+.grid-photo:nth-of-type(1) {
+    grid-area: photo1;
+}
+
+.grid-photo:nth-of-type(2) {
+    grid-area: photo2;
 }
 
 main {
@@ -119,6 +183,28 @@ main {
     border-right: var(--rule) solid #3c4d66;
 }
 
+.left-hero, .left-hero-line-ctn {
+    position: relative;
+}
+
+.left-hero::after, .left-hero-line-ctn::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: calc(var(--rule) * -1);
+    width: var(--rule);
+    height: 20vh;
+    pointer-events: none;
+}
+
+.left-hero::after {
+    background: linear-gradient(to bottom, #e0e4e3, transparent);
+}
+
+.left-hero-line-ctn::after {
+    background: linear-gradient(to bottom, #3c4d66, transparent);
+}
+
 #hero-heading {
     --white-line-offset: 81px;
     --gray-line-offset: 10px;
@@ -132,7 +218,7 @@ main {
     content: "";
     position: absolute;
     z-index: -1;                                       
-    left: 0;
+    left: -20px;
     right: calc(var(--rule) * -1 - var(--strip-w));     
     top: 28px;                                          
     bottom: 5px;
@@ -141,6 +227,7 @@ main {
 }
 
 #hero-heading h1::before {
+    margin: 0px -20px;
     content: "";
     position: absolute;
     left: 0;
@@ -152,6 +239,7 @@ main {
 }
 
 #hero-heading::after {
+    margin: 0px -20px;
     content: "";
     position: absolute;
     left: 0;
@@ -176,13 +264,17 @@ h1 {
     font-weight: 400;
     margin: 0;
 }
-
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
 .backdrop-img{
     position: absolute;
     right: -160px;  
     top: -115px;          
     max-width: 710px;          
-    height: auto;        
+    height: auto;
     z-index: -1;        
     pointer-events: none;
 }
