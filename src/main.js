@@ -20,3 +20,5 @@ if (nav && 'ResizeObserver' in window) {
 } else {
     window.addEventListener('resize', setNavHeight);
 }
+
+document.getElementById('year').textContent = new Date().getFullYear();

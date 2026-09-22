@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <!-- js file -->
    <script type="module" src="/src/main.js"></script>
 </head>
@@ -82,14 +85,29 @@
       <div class="about-ctn">
         <div class="about-grid">
           <div class="about-desc translucent-dblue-box">
+            <div class="about-desc-inner translucent-lgray-box">
+              <h2 class="large-h2">hey</h2>
+              <p>My name is Yandel Polanco, a CS student <a  href="https://www.unc.edu" target="_blank">@ UNC Chapel Hill.</a></p>
+              <p>I spend a ton of time yada yada...</p>
+              <p>I love doing this...</p>
 
+              <div>
+                
+              </div>
+            </div>
           </div>
-          <div class="grid-photo">
-            <img src="" alt="photo of me">
-          </div>
-          <div class="grid-photo">
-            <img src="" alt="photo of me">
-          </div>
+          <figure class="grid-photo photo-one translucent-dblue-box">
+            <img src="src/assets/run-me.jpeg" alt="Me outdoors">
+            <figcaption class="pic-caption">
+              <span class="pic-caption">my first 5k</span>
+            </figcaption>
+          </figure>
+          <figure class="grid-photo photo-two translucent-dblue-box">
+            <img src="src/assets/painting-me.jpeg" alt="Me in front of a painting">
+            <figcaption class="pic-caption">
+              <span >museum tour</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -107,7 +125,7 @@
     </section>
   </main>
   <footer>
-    <p>© 2026 Yandel Polanco. All rights reserved.</p>
+    &copy; <span id="year"></span> Yandel Polanco. All rights reserved.
   </footer>
 </body>
 </html>
