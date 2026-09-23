@@ -14,7 +14,7 @@ a, a:visited {
     color: #A8D8FF;
 }
 
-a:hover {
+a:hover{
     color: #d6eeff;
 }
 
@@ -38,11 +38,46 @@ section {
     min-height: 100vh;
 }
 
+.contact-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    height: 60vh;
+}
+
+.contact-outer{
+    display: flex;
+    border:#e0e4e3 1px solid;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.centered-title{
+    letter-spacing: 2px;
+    display: flex;
+    background-color:#9b9b9b4a;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-inline: auto;
+    padding: 20px 30px;
+}
+
+.centered-title h2{
+    margin:0;
+}
+
 section:not(.hero) {
     padding: 20px
 }
 
 footer {
+    display: flex;
+    justify-content: space-between;
     padding: 28px 20px;
     border-top: 1px solid #3c4d66;
     text-align: center;
@@ -90,17 +125,20 @@ html {
 .nav-link{
     letter-spacing: 2px;
     font-size: 11px;
-    color: #e0e4e3;
     text-decoration: none;
     transition: color 0.5s ease;
 }
 
-.nav-link:visited {
-    color: #e0e4e3;    
+.nav-link:visited, .nav-link, .footer-email{
+    color: #e0e4e3;
 }
 
 .nav-link:hover {
     color: #A8D8FF;
+}
+
+.footer-email {
+    justify-content: center;
 }
 
 p {
@@ -172,6 +210,12 @@ main {
 
 .about-section {
     display: flex;
+}
+
+.email-footer {
+    display: flex;
+    gap: 10px;
+    align-items:center;
 }
 
 .about-ctn {
