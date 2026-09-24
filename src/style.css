@@ -18,14 +18,20 @@ a:hover{
     color: #d6eeff;
 }
 
-
-
-.translucent-dblue-box {
-    background-color: #162a474a;
+.list-section-inner {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    border: #e0e4e3 1px solid;
+    gap: 15px;
+    padding: 10px;
 }
 
-.translucent-lgray-box {
-    background-color: #9b9b9b4a;
+.list-header > *{
+    margin: 5px;
 }
 
 .pic-caption {
@@ -46,7 +52,6 @@ section {
     justify-content: center;
     align-items: center;
     width: fit-content;
-    margin-inline: auto;
     padding: 20px 30px;
 }
 
@@ -74,6 +79,19 @@ footer {
 footer p {
     font-size: 10px;
 }
+
+.email-footer {
+    display: flex;
+    gap: 10px;
+    align-items:center;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.footer-email {
+    justify-content: center;
+}
+
 
 .bw-fade {
     background-image: linear-gradient(to top, #8594a1, #162a47);
@@ -122,10 +140,6 @@ i, .nav-link{
 
 .nav-link:hover, .link-icon:hover, a i:hover, a, a:visited{
     color: #A8D8FF;
-}
-
-.footer-email {
-    justify-content: center;
 }
 
 p {
@@ -184,7 +198,7 @@ nav {
 
 main {
     padding-top: 0;
-    width: 100vw;
+    width: 100%;
 }
 
 .hero {
@@ -199,11 +213,6 @@ main {
     display: flex;
 }
 
-.email-footer {
-    display: flex;
-    gap: 10px;
-    align-items:center;
-}
 
 .about-ctn {
     flex: 1;
@@ -242,7 +251,7 @@ main {
     padding: 30px;
     height: auto;
     min-height: 400px;
-    border: 1px solid #e0e4e3;
+    border:#8594a1 1px solid;
     box-shadow: -8px 8px #0b192b35;
 }
 
@@ -563,4 +572,34 @@ h1 {
     .emphasis {
         animation: none;
     }
+}
+
+.translucent-dblue-box {
+    background-color: #162a474a;
+}
+
+.exp-proj-section {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+.exp-proj-section > .translucent-dblue-box:not(.centered-title), .experiences-list, .experience {
+    width: 100%;
+}
+
+.experiences-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.translucent-lgray-box {
+    background-color: #9b9b9b4a;
+}
+
+.experience {
+    padding: 10px;
 }
